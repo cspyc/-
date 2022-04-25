@@ -7,7 +7,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -56,4 +55,6 @@ public class 取卦 {
                 .collect(Collectors.toMap(卦::得卦象,卦->卦));
         return 卦字典;
     }
+
+
 }

@@ -57,4 +57,13 @@ public class 卦 {
     public String 得文言() {
         return 文言;
     }
+
+    public String 字符换卦象(String inputChars) {
+        String 卦象 = "";
+        if (inputChars != null) {
+            String midResult = inputChars.replaceAll("0", "阴");
+            卦象 = midResult.replaceAll("1", "阳");
+        }
+        return 卦象;
+    }
 }
