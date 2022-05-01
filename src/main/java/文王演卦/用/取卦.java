@@ -1,7 +1,9 @@
-package 饮水思源;
+package 文王演卦.用;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import 文王演卦.卦;
+import 文王演卦.卦象;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -49,10 +51,10 @@ public class 取卦 {
         return mapper.getTypeFactory().constructParametricType(collectionClass, elementClass);
     }
 
-    public Map<String, 卦> 创建六十四卦字典() {
+    public Map<卦象, 卦> 创建六十四卦字典() {
         List<卦> 六十四卦 = this.读取卦文();
-        Map<String,卦> 卦字典 = 六十四卦.stream()
-                .collect(Collectors.toMap(卦::得卦象,卦->卦));
+        Map<卦象,卦> 卦字典 = 六十四卦.stream()
+                .collect(Collectors.toMap(卦-> new 卦象(卦.得卦象()),卦->卦));
         return 卦字典;
     }
 

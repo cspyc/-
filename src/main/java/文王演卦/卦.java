@@ -1,4 +1,4 @@
-package 饮水思源;
+package 文王演卦;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -61,8 +61,8 @@ public class 卦 {
     public String 字符换卦象(String inputChars) {
         String 卦象 = "";
         if (inputChars != null) {
-            String midResult = inputChars.replaceAll("0", "阴");
-            卦象 = midResult.replaceAll("1", "阳");
+            String midResult = inputChars.replaceAll(阴阳映零壹.阴.取零壹编码(), 阴阳映零壹.阴.取阴阳值());
+            卦象 = midResult.replaceAll(阴阳映零壹.阳.取零壹编码(), 阴阳映零壹.阳.取阴阳值());
         }
         return 卦象;
     }
