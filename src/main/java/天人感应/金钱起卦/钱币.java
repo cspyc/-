@@ -18,7 +18,13 @@ public class 钱币 {
 
     private static Random random;
 
+    /**
+     * 给Random类增加一个种子数，得到的结果不随机???
+     */
+    private long seedNumber;
+
     public String 抛出得到朝上面() {
+        Random random = new Random();
         if (random.nextBoolean()) {
             return 钱币之象.正面朝上.get朝向();
         } else {
@@ -27,11 +33,9 @@ public class 钱币 {
     }
 
     public 钱币(LocalDateTime timeStamp) {
-        long seedNumber = 3;
         if (timeStamp != null) {
             ZonedDateTime zdt = ZonedDateTime.of(timeStamp, ZoneId.systemDefault());
-            seedNumber = zdt.toInstant().toEpochMilli();
+            this.seedNumber = zdt.toInstant().toEpochMilli();
         }
-        random = new Random(seedNumber);
     }
 }

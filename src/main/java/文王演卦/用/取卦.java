@@ -21,9 +21,14 @@ public class 取卦 {
         BufferedReader bufferedReader = null;
 
         try {
-            String url = this.getClass().getClassLoader().getResource("六十四卦.json").toURI().getPath();
-            File 卦文文件 = new File(url);
-            bufferedReader = new BufferedReader(new FileReader(卦文文件));
+            String path = "六十四卦.json";
+            // 读取流文件
+            InputStream in = this.getClass().getClassLoader().getResourceAsStream(path);
+            bufferedReader = new BufferedReader(new InputStreamReader(in));
+//            String url = this.getClass().getClassLoader().getResource("六十四卦.json").toURI().getPath();
+//            File 卦文文件 = new File(url);
+//            bufferedReader = new BufferedReader(new FileReader(卦文文件));
+
             String readLineData = "";
             StringBuilder allContent = new StringBuilder();
             while ((readLineData = bufferedReader.readLine()) != null) {
@@ -53,8 +58,8 @@ public class 取卦 {
 
     public Map<卦象, 卦> 创建六十四卦字典() {
         List<卦> 六十四卦 = this.读取卦文();
-        Map<卦象,卦> 卦字典 = 六十四卦.stream()
-                .collect(Collectors.toMap(卦-> new 卦象(卦.得卦象()),卦->卦));
+        Map<卦象, 卦> 卦字典 = 六十四卦.stream()
+                .collect(Collectors.toMap(卦 -> new 卦象(卦.得卦象()), 卦 -> 卦));
         return 卦字典;
     }
 

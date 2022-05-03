@@ -25,4 +25,19 @@ public class 爻 {
     @JsonProperty("文言")
     private String 文言;
 
+    public String get爻名() {
+        return 爻名;
+    }
+
+    public String get爻辞() {
+        return 爻辞;
+    }
+
+    public String get象辞() {
+        return 象辞;
+    }
+
+    public String get文言() {
+        return 文言;
+    }
 }

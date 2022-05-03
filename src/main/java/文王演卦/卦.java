@@ -1,6 +1,8 @@
 package 文王演卦;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import 反求储己.人机交互;
+import 天人感应.金钱起卦.钱币之象;
 
 import java.util.List;
 
@@ -29,6 +31,7 @@ public class 卦 {
 
     @JsonProperty("文言")
     private String 文言;
+
 
     public String 得卦名() {
         return 卦名;
